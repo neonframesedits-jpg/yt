@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>MONOCHROME — YouTube Downloader</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap"
+  rel="stylesheet"
+/>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+</head>
+<body>
+  <div class="grain"></div>
+
+  <main class="wrap">
+    <header class="brand">
+      <div class="mark">◆</div>
+      <h1>MONOCHROME</h1>
+      <p class="tagline">A clean, no-nonsense YouTube downloader.</p>
+    </header>
+
+    <section class="card">
+      <form id="url-form" class="url-form">
+        <input
+          id="url-input"
+          type="text"
+          placeholder="Paste a YouTube link…"
+          autocomplete="off"
+          spellcheck="false"
+          required
+        />
+        <button type="submit" id="analyze-btn" class="btn btn-solid">
+          <span class="btn-text">Analyze</span>
+          <span class="spinner" hidden></span>
+        </button>
+      </form>
+
+      <p id="error-msg" class="error" hidden></p>
+
+      <div id="result" class="result" hidden>
+        <div class="preview">
+          <div class="thumb-frame">
+            <img id="thumb" alt="Video thumbnail" />
+          </div>
+          <div class="preview-meta">
+            <h2 id="video-title"></h2>
+            <p id="video-uploader"></p>
+            <span id="video-duration" class="pill"></span>
+          </div>
+        </div>
+
+        <p class="section-label">Choose quality</p>
+        <div class="quality-grid" id="quality-grid"></div>
+
+        <button id="download-btn" class="btn btn-outline" disabled>
+          <span class="btn-text">Download</span>
+          <span class="spinner" hidden></span>
+        </button>
+      </div>
+    </section>
+
+    <footer class="disclaimer">
+      For personal use with content you own or have the rights to download.
+      Please respect creators &amp; YouTube's Terms of Service.
+    </footer>
+  </main>
+
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
